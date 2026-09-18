@@ -32,18 +32,24 @@
    MISE À L'ÉCHELLE GLOBALE (RENDU IDENTIQUE AU ZOOM 80%)
    ========================================================== */
 
+/* ==========================================================
+   MISE À L'ÉCHELLE VISUELLE FLUIDE (SANS LAG SUR CHROME)
+   ========================================================== */
 .modal-card,
 .modal-bento-viewport,
 .room-floating-dock,
 .hotspot-tag {
   transform: scale(0.85);
   transform-origin: center center;
+  /* L'arme secrète anti-lag pour Chrome : */
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
-
-/* Les modales sont centrées ET réduites */
 
 .modal-card.active {
   transform: translate(-50%, -50%) scale(0.85) !important;
+  will-change: transform;
 }
 
 button,
@@ -4327,4 +4333,61 @@ body.is-night #modal-presta .btn-action {
     1.1rem
   ) !important; /* Réduit légèrement le paragraphe de description */
   max-width: 700px !important;
+}
+/* ==========================================================
+   OPTIMISATION DE LA MODALE SERVICES POUR ÉCRANS MOINS HAUTS (< 850px)
+   ========================================================== */
+@media (max-height: 850px) {
+  /* Modale Services : Hauteur maîtrisée et scroll interne fluide */
+  #modal-web.modal-bento-viewport {
+    height: min(88vh, 760px) !important;
+    max-height: 760px !important;
+  }
+
+  /* Tuile de gauche : on réduit les marges intérieures et l'espace des cartes stack */
+  #modal-web .services-bento-tile {
+    padding: 20px 24px !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+  }
+
+  #modal-web .services-seo-intro {
+    font-size: 0.8rem !important;
+    margin-top: 6px !important;
+    line-height: 1.4 !important;
+  }
+
+  #modal-web .services-modern-grid {
+    margin: 8px 0 !important;
+    gap: 10px !important;
+  }
+
+  #modal-web .service-pill-box {
+    padding: 12px 16px !important;
+  }
+
+  #modal-web .service-pill-box p {
+    font-size: 0.81rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Tuile de droite : on réduit la taille de l'animation Lottie pour laisser de la place au bouton */
+  #modal-web .services-lottie-wrapper lottie-player {
+    width: 150px !important;
+    height: 150px !important;
+    margin: 0 auto !important;
+  }
+
+  #modal-web .services-sub-tile {
+    padding: 14px 18px !important;
+  }
+
+  #modal-web .side-services-top p {
+    display: none; /* Masque le sous-titre de l'encart droit si l'écran est vraiment compact */
+  }
+
+  #modal-web .services-cta-sub-tile {
+    padding: 12px 16px !important;
+    gap: 6px !important;
+  }
 }
