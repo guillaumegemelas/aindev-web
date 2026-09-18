@@ -4375,3 +4375,64 @@ body.is-night #modal-presta .btn-action {
 .faq-accordion-list {
   scrollbar-width: none !important;
 }
+/* ==========================================================
+   INDICATEUR DE SCROLL FLottant EN BAS DE MODALE
+   ========================================================== */
+.scroll-indicator-pill {
+  position: sticky;
+  bottom: 16px;
+  margin: -40px auto 10px auto; /* Remonte pour se superposer proprement en bas */
+  display: none; /* Masqué par défaut sur grand écran */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: max-content;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  color: var(--text-main);
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 50;
+  pointer-events: none;
+  animation: bounceIndicator 2s infinite ease-in-out;
+}
+
+body.is-night .scroll-indicator-pill {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f8fafc;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-indicator-pill i {
+  color: var(--accent-cyan);
+  font-size: 0.8rem;
+}
+
+@keyframes bounceIndicator {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(4px);
+  }
+  60% {
+    transform: translateY(2px);
+  }
+}
+
+/* Affichage uniquement sur les écrans bas ou en mode mobile */
+@media (max-height: 750px), (max-width: 960px) {
+  .scroll-indicator-pill {
+    display: flex !important;
+  }
+}
