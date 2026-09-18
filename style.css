@@ -31,20 +31,12 @@
 /* ==========================================================
    MISE À L'ÉCHELLE GLOBALE (RENDU IDENTIQUE AU ZOOM 80%)
    ========================================================== */
-/* ==========================================================
-
-   ÉCHELLE DE L'INTERFACE
-
-   Le diorama reste à 100 %
-
-   ========================================================== */
 
 .modal-card,
 .modal-bento-viewport,
 .room-floating-dock,
 .hotspot-tag {
   transform: scale(0.85);
-
   transform-origin: center center;
 }
 
@@ -3423,6 +3415,20 @@ body.is-night #modal-about .story-subtitle strong {
     max-height: 88vh !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-card,
+  .modal-bento-viewport,
+  .room-floating-dock,
+  .hotspot-tag {
+    transform: scale(1);
+    transform-origin: center center;
+  }
+
+  /* Les modales sont centrées ET réduites */
+
+  .modal-card.active {
+    transform: translate(-50%, -50%) scale(1) !important;
   }
 
   /* 2. Empilage vertical propre des Bento */
