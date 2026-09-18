@@ -329,16 +329,43 @@ async function handleFormSubmit(e) {
       throw new Error("Erreur lors de l'envoi du formulaire");
     }
 
-    alert("Merci Guillaume ! Votre message a bien été envoyé.");
-
-    form.reset();
+    // Ferme le formulaire
     closeAllModals();
+
+    // Réinitialise le formulaire
+    form.reset();
+
+    // Notification personnalisée
+    showFormNotification(
+      "Votre message a bien été envoyé. Merci pour votre demande !",
+    );
   } catch (error) {
     console.error(error);
-    alert(
-      "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer.",
-    );
+
+    showFormNotification("Une erreur est survenue. Veuillez réessayer.", true);
   }
+}
+
+function showFormNotification(message, error = false) {
+  const notification = document.getElementById("form-notification");
+  const text = document.getElementById("form-notification-text");
+  const icon = notification.querySelector("i");
+
+  if (!notification || !text || !icon) return;
+
+  text.textContent = message;
+
+  if (error) {
+    icon.className = "fa-solid fa-circle-exclamation";
+  } else {
+    icon.className = "fa-solid fa-circle-check";
+  }
+
+  notification.classList.add("show");
+
+  setTimeout(() => {
+    notification.classList.remove("show");
+  }, 4500);
 }
 
 // ==========================================================

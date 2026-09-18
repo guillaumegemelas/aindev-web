@@ -4449,3 +4449,42 @@ body.is-night .scroll-indicator-pill {
     display: flex !important;
   }
 }
+
+/* ==========================================================
+
+   NOTIFICATION FORMULAIRE
+
+   ========================================================== */
+
+.form-notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: rgba(20, 25, 30, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #fff;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.form-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-notification i {
+  font-size: 1.1rem;
+}
