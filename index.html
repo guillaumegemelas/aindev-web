@@ -2,7 +2,6 @@
 <html lang="fr" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- TITRE SEO CIBLÉ (Pour Google) -->
@@ -47,16 +46,15 @@
       content="https://aindev-web.fr/images/aindev1.png"
     />
 
-    <!-- ⚡ PRÉCHARGEMENT LCP -->
+    <!-- ⚡ PRÉCHARGEMENT LCP RÉEL (Élément immédiatement affiché) -->
     <link
       rel="preload"
       as="image"
-      href="images/chambre.webp"
+      href="images/aindev1.png"
       fetchpriority="high"
     />
-    <link rel="preload" as="image" href="images/guillaume-portrait.webp" />
 
-    <!-- GOOGLE ANALYTICS -->
+    <!-- GOOGLE ANALYTICS NON-BLOQUANT -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-QQETYWE3PV"
@@ -70,7 +68,7 @@
       gtag("config", "G-QQETYWE3PV");
     </script>
 
-    <!-- SCHEMA.ORG (Fait tout le travail local pour Google et les IA) -->
+    <!-- SCHEMA.ORG -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -197,19 +195,32 @@
     />
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
 
-    <!-- FontAwesome pour les icônes générales -->
+    <!-- CSS PRINCIPAL -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- LIBRAIRIES D'ICÔNES NON-BLOQUANTES -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media = 'all'"
     />
-
-    <!-- Devicon pour les icônes de technos -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      media="print"
+      onload="this.media = 'all'"
     />
-
-    <link rel="stylesheet" href="style.css" />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      />
+    </noscript>
   </head>
   <body class="is-night">
     <!-- ÉCRAN D'INTRODUCTION -->
@@ -255,11 +266,13 @@
           src="images/chambre.webp"
           alt="Bureau de travail Guillaume Gemelas"
           class="room-bg room-day room-desktop-bg"
+          loading="lazy"
         />
         <img
           src="images/chambre-nuit.webp"
           alt="Bureau interactif Aindev nuit"
           class="room-bg room-night room-desktop-bg"
+          loading="lazy"
         />
 
         <!-- IMAGES MOBILE (VERTICALES) -->
@@ -267,11 +280,13 @@
           src="images/chambre-mob.webp"
           alt="Espace de travail mobile jour"
           class="room-bg room-day room-mobile-bg"
+          loading="lazy"
         />
         <img
           src="images/chambre-mob-nuit.webp"
           alt="Espace de travail mobile nuit"
           class="room-bg room-night room-mobile-bg"
+          loading="lazy"
         />
 
         <!-- INTERRUPTEUR : Lampe -->
@@ -358,7 +373,6 @@
 
     <!-- DOCK D'ACTIONS : ÎLOTS APPLE GLASS -->
     <aside class="room-floating-dock">
-      <!-- NOUVEL ÎLOT LOGO -->
       <a
         href="#"
         class="dock-island dock-island--brand"
@@ -552,24 +566,9 @@
                   </div>
                 </div>
 
-                <!-- <div class="drone-lottie-wrapper">
-                  <lottie-player
-                    src="animation/animation2.json"
-                    background="transparent"
-                    speed="1"
-                    style="width: 190px; height: 190px"
-                    autoplay
-                    loop
-                  >
-                  </lottie-player>
-                </div> -->
-
                 <!-- CONTENEUR IPHONE VIDÉO DRONE -->
                 <div class="iphone14-horizontal">
-                  <!-- Encoche -->
                   <div class="notch"></div>
-
-                  <!-- Vidéo YouTube intégrée -->
                   <iframe
                     src="https://www.youtube.com/embed/3BXO3Ef2v3c?rel=0&amp;mute=0&amp;loop=1&amp;playlist=3BXO3Ef2v3c&amp;modestbranding=1&amp;controls=0&amp;fs=0"
                     title="Captation Vidéo Drone 4K par Aindev"
@@ -585,8 +584,6 @@
                     allowfullscreen
                   >
                   </iframe>
-
-                  <!-- Ombre douce -->
                   <div class="shadow"></div>
                 </div>
 
@@ -822,6 +819,7 @@
                     src="images/guillaume-portrait.webp"
                     alt="Guillaume Gemelas"
                     class="services-mini-avatar"
+                    loading="lazy"
                   />
                   <div class="services-avatar-text">
                     <strong>Guillaume Gemelas</strong>
@@ -851,6 +849,7 @@
                       src="https://aindev-drone.fr/wp-content/uploads/2026/04/google.webp"
                       alt="Google"
                       class="cta-google-icon"
+                      loading="lazy"
                     />
                     Fiche Établissement
                   </a>
@@ -931,6 +930,7 @@
                         src="images/aindev.png"
                         alt="Aindev"
                         class="brand-minilogo"
+                        loading="lazy"
                       />
                       <div class="brand-text-col">
                         <span class="brand-title">aindev</span>
@@ -944,6 +944,7 @@
                           src="images/guillaume-portrait.webp"
                           alt="Guillaume Gemelas"
                           class="trust-avatar-img"
+                          loading="lazy"
                         />
                         <span
                           class="trust-status-dot"
@@ -959,7 +960,6 @@
                     </div>
                   </div>
 
-                  <!-- TITRE PROPRE ET NATUREL -->
                   <h2 class="portfolio-main-heading">
                     Ils m'ont fait confiance
                   </h2>
@@ -993,6 +993,7 @@
                     <img
                       src="images/tourn.webp"
                       alt="Tour'bois Créations — Création site e-commerce artisanat et tournerie sur bois dans l'Ain"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>TB</span>'"
                     />
                   </button>
@@ -1004,6 +1005,7 @@
                     <img
                       src="images/mcl.webp"
                       alt="MCL Gestion — Création de site internet gestion d'entreprise et conseil dans l'Ain"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>MCL</span>'"
                     />
                   </button>
@@ -1015,6 +1017,7 @@
                     <img
                       src="images/soupe2.webp"
                       alt="Soupe Horticulture — Site vitrine pépiniériste et horticulture dans l'Ain"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>SH</span>'"
                     />
                   </button>
@@ -1026,6 +1029,7 @@
                     <img
                       src="images/accessmachines.webp"
                       alt="Access Machines — Site web vente et location de machines industrielles et BTP"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>AM</span>'"
                     />
                   </button>
@@ -1037,6 +1041,7 @@
                     <img
                       src="images/egt.webp"
                       alt="EGT Environnement — Création site web terrassement et travaux publics dans l'Ain"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>EGT</span>'"
                     />
                   </button>
@@ -1048,6 +1053,7 @@
                     <img
                       src="images/mille.webp"
                       alt="Mille et un pas — Site internet association randonnée et loisirs nature Ain"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>M1P</span>'"
                     />
                   </button>
@@ -1059,6 +1065,7 @@
                     <img
                       src="images/access.webp"
                       alt="AccessPro'TP — Développement site internet négoce matériel TP et travaux publics"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>ATP</span>'"
                     />
                   </button>
@@ -1070,6 +1077,7 @@
                     <img
                       src="images/formprotech3.png"
                       alt="Formprotech — Site web organisme de formation professionnelle et sécurité au travail"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>FP</span>'"
                     />
                   </button>
@@ -1081,6 +1089,7 @@
                     <img
                       src="images/clinic.webp"
                       alt="Clinic Armes — Création site e-commerce et vitrine armurerie spécialisée"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>CA</span>'"
                     />
                   </button>
@@ -1092,6 +1101,7 @@
                     <img
                       src="images/mailland.png"
                       alt="Les Meubles Mailland — Site internet ébénisterie et mobilier sur-mesure dans l'Ain"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>MM</span>'"
                     />
                   </button>
@@ -1103,6 +1113,7 @@
                     <img
                       src="images/nath.webp"
                       alt="Robez Masson — Site vitrine boutique artisanale et créations locales"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>NC</span>'"
                     />
                   </button>
@@ -1114,6 +1125,7 @@
                     <img
                       src="images/aindev-drone.webp"
                       alt="Aindev Drone - prises de vue par drone"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>NC</span>'"
                     />
                   </button>
@@ -1125,6 +1137,7 @@
                     <img
                       src="images/essain4.webp"
                       alt="ESS'Ain — Plateforme web économie sociale et solidaire dans le département de l'Ain"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>ESS</span>'"
                     />
                   </button>
@@ -1136,6 +1149,7 @@
                     <img
                       src="images/sou.webp"
                       alt="Sou des écoles — Site association scolaire et événements associatifs locaux"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>SDE</span>'"
                     />
                   </button>
@@ -1147,6 +1161,7 @@
                     <img
                       src="images/comp3.webp"
                       alt="Compétences & vous — Site internet bilan de compétences et coaching professionnel"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>CV</span>'"
                     />
                   </button>
@@ -1158,6 +1173,7 @@
                     <img
                       src="images/kodama.webp"
                       alt="Kodama — Site vitrine aménagement paysager et soins des arbres"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>KD</span>'"
                     />
                   </button>
@@ -1169,6 +1185,7 @@
                     <img
                       src="images/epgv2.png"
                       alt="EPGV 01 — Site web comité départemental éducation physique et gymnastique volontaire Ain"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>EP</span>'"
                     />
                   </button>
@@ -1180,6 +1197,7 @@
                     <img
                       src="images/glc3.webp"
                       alt="GLC Communication — Conception de site internet agence de communication et print"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>GLC</span>'"
                     />
                   </button>
@@ -1191,6 +1209,7 @@
                     <img
                       src="images/essilo.webp"
                       alt="Essilor — Développement d'interfaces et solutions digitales pour l'optique"
+                      loading="lazy"
                       onerror="this.outerHTML = '<span>ES</span>'"
                     />
                   </button>
@@ -1234,7 +1253,6 @@
                       fluide.
                     </p>
 
-                    <!-- Ligne alignant le bouton à gauche et la miniature à droite -->
                     <div class="focus-action-preview-row" id="focusAction">
                       <a
                         href="https://tournbois-creations.fr"
@@ -1249,7 +1267,6 @@
                         ></i>
                       </a>
 
-                      <!-- Miniature du projet (Macbook/iPhone) -->
                       <div class="project-preview-thumb" id="focusPreviewThumb">
                         <img
                           id="focusPreviewImg"
@@ -1299,6 +1316,7 @@
                           class="google-icon"
                           src="https://aindev-drone.fr/wp-content/uploads/2026/04/google.webp"
                           alt="Google"
+                          loading="lazy"
                         />
                       </div>
                       <div class="stars">
@@ -1332,6 +1350,7 @@
                           class="google-icon"
                           src="https://aindev-drone.fr/wp-content/uploads/2026/04/google.webp"
                           alt="Google"
+                          loading="lazy"
                         />
                       </div>
                       <div class="stars">
@@ -1365,6 +1384,7 @@
                           class="google-icon"
                           src="https://aindev-drone.fr/wp-content/uploads/2026/04/google.webp"
                           alt="Google"
+                          loading="lazy"
                         />
                       </div>
                       <div class="stars">
@@ -1395,6 +1415,7 @@
                           class="google-icon"
                           src="https://aindev-drone.fr/wp-content/uploads/2026/04/google.webp"
                           alt="Google"
+                          loading="lazy"
                         />
                       </div>
                       <div class="stars">
@@ -1427,6 +1448,7 @@
                           class="google-icon"
                           src="https://aindev-drone.fr/wp-content/uploads/2026/04/google.webp"
                           alt="Google"
+                          loading="lazy"
                         />
                       </div>
                       <div class="stars">
@@ -1458,6 +1480,7 @@
                           class="google-icon"
                           src="https://aindev-drone.fr/wp-content/uploads/2026/04/google.webp"
                           alt="Google"
+                          loading="lazy"
                         />
                       </div>
                       <div class="stars">
@@ -1485,7 +1508,6 @@
               </div>
             </section>
 
-            <!-- TUILE 3 : RÉASSURANCE, EXPERTISE & CONTACT (DROITE) -->
             <aside class="bento-tile bento-tile--action">
               <div class="side-cta-card">
                 <div class="side-cta-top">
@@ -1580,6 +1602,7 @@
                       src="https://aindev-drone.fr/wp-content/uploads/2026/04/google.webp"
                       alt="Google"
                       class="cta-google-icon"
+                      loading="lazy"
                     />
                     Fiche Établissement
                   </a>
@@ -1655,6 +1678,7 @@
                   src="images/guillaume-portrait.webp"
                   alt="Guillaume Gemelas — Développeur web freelance dans l'Ain"
                   class="about-portrait-img"
+                  loading="lazy"
                 />
                 <div class="about-location-badge">
                   <i
@@ -1755,6 +1779,7 @@
                       src="images/guigui.webp"
                       alt="Mascotte Guillaume"
                       class="about-mascot-img"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -1843,7 +1868,6 @@
                   method="POST"
                   data-netlify="true"
                   netlify-honeypot="bot-field"
-                  ="bot-field"
                   onsubmit="handleFormSubmit(event)"
                 >
                   <!-- Champs techniques requis par Netlify -->
@@ -1940,6 +1964,7 @@
                   src="images/guillaume-portrait.webp"
                   alt="Guillaume Gemelas"
                   class="services-mini-avatar"
+                  loading="lazy"
                 />
                 <div class="services-avatar-text">
                   <strong>Guillaume Gemelas</strong>
@@ -1968,6 +1993,7 @@
                     src="https://aindev-drone.fr/wp-content/uploads/2026/04/google.webp"
                     alt="Google"
                     class="c-google-icon"
+                    loading="lazy"
                   />
                 </a>
 
@@ -2128,8 +2154,9 @@
             </button>
           </div>
         </article>
+
         <!-- ==========================================
-             MODALE 7 : FAQ & MÉTHODE (BENTO ACCORDÉON)
+             MODALE 7 : FAQ & MÉTHODE
              ========================================== -->
         <div
           class="modal-card modal-bento-viewport modal-faq-card"
@@ -2145,16 +2172,15 @@
           </button>
 
           <div class="faq-bento-container">
-            <!-- TUILE GAUCHE : GRANDE TUILE UNIQUE FAQ ACCORDÉON -->
             <section class="bento-tile faq-tile--main">
               <div class="faq-header-wrap">
                 <div class="faq-brand-top">
-                  <!-- 1. Pastille aindev -->
                   <div class="brand-logo-pill">
                     <img
                       src="images/aindev.png"
                       alt="Aindev"
                       class="brand-minilogo"
+                      loading="lazy"
                     />
                     <div class="brand-text-col">
                       <span class="brand-title">aindev</span>
@@ -2162,10 +2188,8 @@
                     </div>
                   </div>
 
-                  <!-- 2. Badge Foire Aux Questions déplacé ici -->
                   <div class="modal-badge faq-badge">Foire Aux Questions</div>
 
-                  <!-- 3. Pastille d'aide à droite -->
                   <div class="faq-help-pill">
                     <i class="fa-solid fa-circle-question"></i>
                     <span>Des réponses claires à vos questions</span>
@@ -2182,7 +2206,6 @@
 
               <!-- ACCORDÉON INTERACTIF -->
               <div class="faq-accordion-list">
-                <!-- Question 1 (ouverte par défaut) -->
                 <div class="faq-item active">
                   <button class="faq-question" onclick="toggleFaq(this)">
                     <span class="faq-q-text">
@@ -2205,7 +2228,6 @@
                   </div>
                 </div>
 
-                <!-- Question 2 -->
                 <div class="faq-item">
                   <button class="faq-question" onclick="toggleFaq(this)">
                     <span class="faq-q-text">
@@ -2225,7 +2247,6 @@
                   </div>
                 </div>
 
-                <!-- Question 3 -->
                 <div class="faq-item">
                   <button class="faq-question" onclick="toggleFaq(this)">
                     <span class="faq-q-text">
@@ -2245,7 +2266,6 @@
                   </div>
                 </div>
 
-                <!-- Question 4 -->
                 <div class="faq-item">
                   <button class="faq-question" onclick="toggleFaq(this)">
                     <span class="faq-q-text">
@@ -2267,7 +2287,6 @@
                   </div>
                 </div>
 
-                <!-- Question 5 -->
                 <div class="faq-item">
                   <button class="faq-question" onclick="toggleFaq(this)">
                     <span class="faq-q-text">
@@ -2288,7 +2307,6 @@
                   </div>
                 </div>
 
-                <!-- Question 7 : Proximité & Freelance vs Agence -->
                 <div class="faq-item">
                   <button class="faq-question" onclick="toggleFaq(this)">
                     <span class="faq-q-text">
@@ -2309,7 +2327,6 @@
                 </div>
               </div>
 
-              <!-- Bas de tuile : bouton vers contact -->
               <div class="faq-bottom-cta">
                 <span class="faq-bottom-text"
                   >Une question spécifique à votre secteur ?</span
@@ -2327,7 +2344,6 @@
               </div>
             </section>
 
-            <!-- TUILE DROITE : RÉASSURANCE (REPRISE EXACTE DE LA TUILE RÉALISATIONS) -->
             <aside class="bento-tile bento-tile--action">
               <div class="side-cta-card">
                 <div class="side-cta-top">
@@ -2341,7 +2357,6 @@
                   </div>
                 </div>
 
-                <!-- ÉTOILES GOOGLE VECTORIELLES HAUT DE GAMME -->
                 <div class="side-cta-rating">
                   <div class="side-stars">
                     <i class="fa-solid fa-star"></i>
@@ -2354,7 +2369,6 @@
                   <span>13 avis vérifiés Google</span>
                 </div>
 
-                <!-- AVANTAGES AVEC ICÔNES EN CAPSULES PRO -->
                 <ul class="side-perks-list">
                   <li>
                     <span class="perk-icon-wrap">
@@ -2424,6 +2438,7 @@
                       src="https://aindev-drone.fr/wp-content/uploads/2026/04/google.webp"
                       alt="Google"
                       class="cta-google-icon"
+                      loading="lazy"
                     />
                     Fiche Établissement
                   </a>
@@ -2477,11 +2492,18 @@
         </div>
       </div>
     </div>
+
+    <!-- NOTIFICATION FORMULAIRE (PLACÉE HORS DES MODALES) -->
     <div id="form-notification" class="form-notification" aria-live="polite">
       <i class="fa-solid fa-circle-check"></i>
       <span id="form-notification-text"></span>
     </div>
-    <script src="app.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!-- SCRIPTS DIFFÉRÉS POUR SUPPRIMER LE TOTAL BLOCKING TIME -->
+    <script src="app.js" defer></script>
+    <script
+      src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+      defer
+    ></script>
   </body>
 </html>
