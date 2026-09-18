@@ -28,6 +28,31 @@
   --input-bg: rgba(255, 255, 255, 0.85);
   --input-border: rgba(148, 163, 184, 0.4);
 }
+/* ==========================================================
+   MISE À L'ÉCHELLE GLOBALE (RENDU IDENTIQUE AU ZOOM 80%)
+   ========================================================== */
+/* ==========================================================
+
+   ÉCHELLE DE L'INTERFACE
+
+   Le diorama reste à 100 %
+
+   ========================================================== */
+
+.modal-card,
+.modal-bento-viewport,
+.room-floating-dock,
+.hotspot-tag {
+  transform: scale(0.85);
+
+  transform-origin: center center;
+}
+
+/* Les modales sont centrées ET réduites */
+
+.modal-card.active {
+  transform: translate(-50%, -50%) scale(0.85) !important;
+}
 
 button,
 a {
