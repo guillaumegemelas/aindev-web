@@ -4335,7 +4335,7 @@ body.is-night #modal-presta .btn-action {
   max-width: 700px !important;
 }
 
-/* ==========================================================
+/* =========================================================
    UNIFORMISATION DE LA LARGEUR DES MODALES SUR ÉCRANS BAS ET LARGES
    ========================================================== */
 @media (max-height: 750px), (max-width: 1100px) {
