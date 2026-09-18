@@ -4451,27 +4451,29 @@ body.is-night .scroll-indicator-pill {
 }
 
 /* ==========================================================
-
-   NOTIFICATION FORMULAIRE
-
+   NOTIFICATION FORMULAIRE (DESKTOP GAUCHE + MOBILE REHAUSSÉ + JOUR/NUIT)
    ========================================================== */
 
+/* Mode Jour (par défaut) */
 .form-notification {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  left: 30px;
+  right: auto;
   z-index: 99999;
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 14px 20px;
   border-radius: 14px;
-  background: rgba(20, 25, 30, 0.94);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #1e293b;
   font-size: 0.95rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
@@ -4487,19 +4489,41 @@ body.is-night .scroll-indicator-pill {
 
 .form-notification i {
   font-size: 1.1rem;
-}
-
-/* Icône de succès (cyan/vert selon ta charte) */
-.form-notification i {
   color: #10b981;
 }
 
-/* Variante en cas d'erreur */
+/* Mode Nuit */
+body.is-night .form-notification {
+  background: rgba(15, 23, 42, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Gestion de l'état d'erreur (Jour & Nuit) */
 .form-notification.is-error {
+  background: rgba(254, 242, 242, 0.95);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #991b1b;
+}
+
+body.is-night .form-notification.is-error {
   background: rgba(45, 15, 15, 0.94);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
 }
 
 .form-notification.is-error i {
   color: #ef4444;
+}
+
+/* Version Mobile : relevée de 50 px et centrée */
+@media (max-width: 768px) {
+  .form-notification {
+    bottom: 80px;
+    left: 20px;
+    right: 20px;
+    justify-content: center;
+    text-align: center;
+  }
 }
