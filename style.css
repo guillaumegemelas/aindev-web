@@ -4308,3 +4308,23 @@ body.is-night #modal-presta .btn-action {
     height: 80px !important;
   }
 }
+/* ==========================================================
+   AJUSTEMENT DE LA TAILLE DU TEXTE DE L'ÉCRAN D'INTRODUCTION
+   ========================================================== */
+.intro-phrase .intro-phrase-title {
+  font-size: clamp(
+    1.8rem,
+    3.2vw,
+    2.6rem
+  ) !important; /* Réduit légèrement le titre principal */
+  margin-bottom: 16px !important;
+}
+
+.intro-phrase p:not(.intro-phrase-title) {
+  font-size: clamp(
+    0.95rem,
+    1.5vw,
+    1.1rem
+  ) !important; /* Réduit légèrement le paragraphe de description */
+  max-width: 700px !important;
+}
