@@ -568,3 +568,22 @@ function toggleFaq(button) {
     currentItem.classList.add("active");
   }
 }
+/* ==========================================================
+   GESTION DE L'AUTO-HIDE DE L'INDICATEUR DE SCROLL
+   ========================================================== */
+document
+  .querySelectorAll(".modal-card, .modal-bento-viewport")
+  .forEach((modal) => {
+    modal.addEventListener("scroll", () => {
+      const indicator = modal.querySelector(".scroll-indicator-pill");
+      if (!indicator) return;
+
+      // Si on a scrollé de plus de 15 pixels vers le bas, on masque la capsule
+      if (modal.scrollTop > 15) {
+        indicator.classList.add("is-hidden");
+      } else {
+        // Si on est revenu tout en haut, on la réaffiche
+        indicator.classList.remove("is-hidden");
+      }
+    });
+  });
