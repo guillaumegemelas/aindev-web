@@ -4262,3 +4262,49 @@ body.is-night #modal-presta .btn-action {
     height: 140px;
   }
 }
+/* ==========================================================
+   AJUSTEMENT POUR LES ÉCRANS DE HAUTEUR MOYENNE (< 850px)
+   ========================================================== */
+@media (max-height: 850px) {
+  /* On réduit un tout petit peu la hauteur globale de la modale bento pour qu'elle respire */
+  .modal-bento-viewport {
+    height: min(88vh, 740px) !important;
+    max-height: 740px !important;
+  }
+
+  /* On compacte légèrement les marges intérieures de la tuile des projets */
+  .bento-tile--projects {
+    padding: 16px 24px !important;
+  }
+
+  /* On réduit la taille des logos du carrousel pour qu'ils prennent moins de hauteur */
+  .dock-item {
+    flex: 0 0 54px !important;
+    width: 54px !important;
+    height: 54px !important;
+    border-radius: 14px !important;
+  }
+
+  /* On réduit l'espacement et la taille du titre principal dans cette modale */
+  .portfolio-main-heading {
+    font-size: 1.7rem !important;
+    margin-top: 10px !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* On ajuste la carte de focus centrale pour qu'elle soit plus compacte en hauteur */
+  .project-focus-card {
+    padding: 18px 24px !important;
+    min-height: 240px !important;
+    height: auto !important;
+  }
+
+  .focus-logo-container {
+    width: 95px !important;
+    height: 95px !important;
+  }
+
+  .project-preview-thumb {
+    height: 80px !important;
+  }
+}
