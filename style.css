@@ -4146,7 +4146,7 @@ body.is-night #modal-presta .btn-action {
 .iphone14-horizontal {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 380px;
   height: 205px; /* Hauteur réduite pour éviter l'effet carré */
   margin: 16px auto;
   background: #000;
@@ -4351,4 +4351,27 @@ body.is-night #modal-presta .btn-action {
     width: 95vw !important;
     margin: 0 auto !important;
   }
+}
+/* ==========================================================
+   MASQUAGE PROPRE DES ASCENSEURS (SCROLLBARS) SUR TOUT LE SITE
+   ========================================================== */
+
+/* Pour Chrome, Safari, Edge et Opera */
+.modal-card::-webkit-scrollbar,
+.modal-bento-viewport::-webkit-scrollbar,
+.legal-content-box::-webkit-scrollbar,
+.focus-right::-webkit-scrollbar,
+.faq-accordion-list::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Pour Firefox */
+.modal-card,
+.modal-bento-viewport,
+.legal-content-box,
+.focus-right,
+.faq-accordion-list {
+  scrollbar-width: none !important;
 }
