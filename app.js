@@ -345,6 +345,37 @@ async function handleFormSubmit(e) {
     showFormNotification("Une erreur est survenue. Veuillez réessayer.", true);
   }
 }
+let notificationTimeout;
+
+function showFormNotification(message, isError = false) {
+  const toast = document.getElementById("form-notification");
+  const toastText = document.getElementById("form-notification-text");
+  const toastIcon = document.getElementById("form-notification-icon");
+
+  if (!toast || !toastText) return;
+
+  // Réinitialise le timer si un toast est déjà actif
+  clearTimeout(notificationTimeout);
+
+  // Mise à jour du contenu et du style
+  toastText.textContent = message;
+
+  if (isError) {
+    toast.classList.add("is-error");
+    if (toastIcon) toastIcon.className = "fa-solid fa-circle-xmark";
+  } else {
+    toast.classList.remove("is-error");
+    if (toastIcon) toastIcon.className = "fa-solid fa-circle-check";
+  }
+
+  // Affiche la notification
+  toast.classList.add("show");
+
+  // Masque après 4 secondes
+  notificationTimeout = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 4000);
+}
 
 function showFormNotification(message, error = false) {
   const notification = document.getElementById("form-notification");

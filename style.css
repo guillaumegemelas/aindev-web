@@ -4488,3 +4488,18 @@ body.is-night .scroll-indicator-pill {
 .form-notification i {
   font-size: 1.1rem;
 }
+
+/* Icône de succès (cyan/vert selon ta charte) */
+.form-notification i {
+  color: #10b981;
+}
+
+/* Variante en cas d'erreur */
+.form-notification.is-error {
+  background: rgba(45, 15, 15, 0.94);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.form-notification.is-error i {
+  color: #ef4444;
+}
