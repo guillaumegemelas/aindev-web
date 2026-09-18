@@ -303,10 +303,42 @@ function switchToContact(subject) {
   if (subInput) subInput.value = subject;
 }
 
-function handleFormSubmit(e) {
+function switchToContact(subject) {
+  openModal("modal-contact");
+
+  const subInput = document.getElementById("subject");
+  if (subInput) subInput.value = subject;
+}
+
+async function handleFormSubmit(e) {
   e.preventDefault();
-  alert("Merci Guillaume ! Votre message a bien été envoyé.");
-  closeAllModals();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(formData).toString(),
+    });
+
+    if (!response.ok) {
+      throw new Error("Erreur lors de l'envoi du formulaire");
+    }
+
+    alert("Merci Guillaume ! Votre message a bien été envoyé.");
+
+    form.reset();
+    closeAllModals();
+  } catch (error) {
+    console.error(error);
+    alert(
+      "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer.",
+    );
+  }
 }
 
 // ==========================================================

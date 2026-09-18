@@ -4409,12 +4409,6 @@ body.is-night #modal-presta .btn-action {
   animation: bounceIndicator 2s infinite ease-in-out;
 }
 
-/* S'assure que la modale parente autorise le débordement de cet élément */
-.modal-card,
-.modal-bento-viewport {
-  position: relative !important; /* Nécessaire pour que le 'position: absolute' de l'indicateur se cale sur la modale */
-}
-
 .scroll-indicator-pill.is-hidden {
   opacity: 0;
   visibility: hidden;
